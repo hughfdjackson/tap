@@ -1,14 +1,17 @@
 {
   "name": "tap",
   "version": "0.1.0",
-  "description": "Adds a single method to Object.prototype to enable seamless function and method interop - see hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/",
+  "description": "Supplies a single mixin to enable seamless function and method interop - see hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/",
   "main": "tap.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha --ui qunit"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hughfdjackson/tap.git"
+  },
+  "devDependencies": {
+    "underscore": "1.4.2"
   },
   "keywords": [
     "function",
