@@ -103,6 +103,13 @@ test('tap against arrays', function(){
 
 suite('tap with multiple arguments')
 
-test('', function(){
+test('it should pass the arguments to the function supplied *after* the `this` value of .tap', function(){
+    var o = tap.mixin({}),
+        shallowExtend = function(a, b){ for ( var p in b ) a[p] = b[p]; return a }
 
+    
+    o.tap(shallowExtend, { test: 'val' })
+
+    a.ok(_.contains(_.keys(o), 'test'))
+    a.ok(_.contains(_.values(o), 'val'))
 })
