@@ -1,0 +1,23 @@
+{
+  "name": "tap",
+  "version": "0.1.0",
+  "description": "Adds an Object.prototype.tap implementation - as described in hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/",
+  "main": "tap.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hughfdjackson/tap.git"
+  },
+  "keywords": [
+    "function",
+    "functional",
+    "object",
+    "orientated",
+    "sugar",
+    "evil"
+  ],
+  "author": "hughfdjackson",
+  "license": "BSD"
+}
