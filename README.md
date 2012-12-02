@@ -48,4 +48,4 @@ And require:
 
 ## More Info
 
-This library has a [companion blog post](hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/).
+This library has a [companion blog post](http://hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/).
