@@ -1,52 +1,34 @@
 # Tap 
 
-A mixin for seamless function and method interop - letting your stand-alone functions tap into the method chain
+Tap your functions into method chains.
 
-## Getting Started
+## Example
 
-To get started, use `tap.mixin` to add the method to any object.  For maximum awesome (at max ballsiness):
+    require('tap-chain').mixin(Object.prototype)
+    
+    var add = function(a, b){ return a + b },
+        divide = function(a, b){ return a / b }
+    
+    var people = [
+        { name: 'bob', age: 55 },
+        { name: 'susan', age: 44 },
+        { name: 'charles', age: 20 },
+        { name: 'bex', age: 30 }
+    ]
+    
+    var averageAge = people.map(function(p){ return p.age })
+                           .reduce(add)
+                           .tap(divide, people.length)
+                           .tap(Math.round)
+    averageAge
+    //= 37
 
-    tap.mixin(Object.prototype)
-    
-Once mixed in, any object that inherits it, or primative that inherits from an object that does, can have regular functions injected in to method chains:
+## Why
 
-    tap.mixin(Object.prototype)
-    
-    var o = { name: 'hugh', occupation: 'softare engineer'  }
-    
-    o.tap(Object.keys)
-     .tap(JSON.stringify)
-     .tap(alert)
- 
-    // alert -> ["name", "occupation"]
-    
+Functions give us flexibility about granularity and locality, but they can be awkward to compose with an value's methods.  `tap` makes using functions & methods together idiomatic, natural, and very easy to read.  [See here](http://hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/) for a fuller discussion.
 
 ## API
 
-#### `tap.mixin`
+## Install 
 
-`tap.mixin` adds `.tap` to each object passed in.  If in an es5 environment, it will added as a non-enumerable, so as not to show up in loops.  Otherwise, it adds it as a regular property.
-
-#### `.tap`
-
-`.tap` takes a function, and any number of additional arguments.  It calls the function , passing in the value of `this` within the method as the first argument to the function, and the additional arguments are passed after that.
-
-## Installation 
-
-#### Node
-
-Install via:
-
-    npm install tap-chain
-    
-And require:
-
-    var tap = require('tap-chain')
-
-#### Browser
-
-[download and include as a script tag](https://raw.github.com/hughfdjackson/tap/master/tap.js), or use npm with [browserify](https://github.com/substack/node-browserify) or [requirejs](http://requirejs.org/).
-
-## More Info
-
-This library has a [companion blog post](http://hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/).
+`npm install tap-chain` or [download](https://raw.github.com/hughfdjackson/tap/master/tap.js).  Creates a CommonJS module if available, otherwise exports a global named `tap`.
