@@ -8,6 +8,7 @@ Functions give us flexibility about granularity and locality, but they can be aw
 
 ## Example
 
+```javascript
     require('tap-chain').mixin(Object.prototype)
     
     var add = function(a, b){ return a + b },
@@ -26,6 +27,7 @@ Functions give us flexibility about granularity and locality, but they can be aw
                            .tap(Math.round)
     averageAge
     //= 37
+```
 
 ## API
 
@@ -33,6 +35,7 @@ Functions give us flexibility about granularity and locality, but they can be aw
 
 Mixes the `.tap` method into any number of objects.  If the environment supports es5, then the property will be set to *non-enumerable*.
 
+```javascript
     var tap = require('tap-chain')
 
     // mix in to base backbone constructors
@@ -46,24 +49,29 @@ Mixes the `.tap` method into any number of objects.  If the environment supports
 
     // mix in to all objects - making .tap work on all values, even primitives (except `null` and `undefined`)
     tap.mixin(Object.prototype)
+```
 
 ### `.tap (fn, [secondardy-args]) -> anyValue`
 
 The mixed-in `.tap` method calls a function, using the context of the method as the first argument:
 
+```javascript
     var inc = function(v){ return v + 1 },
         num = 5
         
     num.tap(inc)
     //= 6
-    
+```
+
 `.tap` also takes optional secondary arguments:
 
+```javascript
     var divide = function(a, b){ return a / b },
         num    = 10
         
     num.tap(divide, 2)
     //= 5
+```
 
 ## Install 
 
