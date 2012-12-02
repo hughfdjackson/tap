@@ -47,7 +47,8 @@ var player = tap.mixin({ name: 'scott pilgrim', health: 100 })
 // mix in to a blank object
 var map = tap.mixin(Object.create(null))
 
-// mix in to all objects - making .tap work on all values, even primitives (except `null` and `undefined`)
+// mix in to all objects - making .tap work on all values,
+// even primitives (except `null` and `undefined`)
 tap.mixin(Object.prototype)
 ```
 
