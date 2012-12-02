@@ -29,7 +29,7 @@ Functions give us flexibility about granularity and locality, but they can be aw
 
 ## API
 
-`tap.mixin (object, [objects]) -> object`
+### `tap.mixin (object, [objects]) -> object`
 
 Mixes the `.tap` method into any number of objects.  If the environment supports es5, then the property will be set to *non-enumerable*.
 
@@ -47,7 +47,7 @@ Mixes the `.tap` method into any number of objects.  If the environment supports
     // mix in to all objects - making .tap work on all values, even primitives (except `null` and `undefined`)
     tap.mixin(Object.prototype)
 
-`.tap (fn, [secondardy-args]) -> anyValue`
+### `.tap (fn, [secondardy-args]) -> anyValue`
 
 The mixed-in `.tap` method calls a function, using the context of the method as the first argument:
 
