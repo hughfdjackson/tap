@@ -1,6 +1,6 @@
 {
   "name": "tap",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Supplies a single mixin to enable seamless function and method interop - see hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/",
   "main": "tap.js",
   "scripts": {
