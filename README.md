@@ -29,6 +29,31 @@ Functions give us flexibility about granularity and locality, but they can be aw
 
 ## API
 
+`tap.mixin`
+`(object) -> object`
+
+Mixes the `.tap` method into any object.  If the environment supports es5, then the property will be set to `non-enumerable`
+
+
+`.tap`
+`(fn, [secondardy-args]) -> anyValue`
+
+The mixed-in `.tap` method calls a function, using the context of the method as the first argument:
+
+    var inc = function(v){ return v + 1 },
+        num = 5
+        
+    num.tap(inc)
+    //= 6
+    
+`.tap` also takes optional secondary arguments:
+
+    var divide = function(a, b){ return a / b },
+        num    = 10
+        
+    num.tap(divide, 2)
+    //= 5
+
 ## Install 
 
 `npm install tap-chain` or [download](https://raw.github.com/hughfdjackson/tap/master/tap.js).  Creates a CommonJS module if available, otherwise exports a global named `tap`.
