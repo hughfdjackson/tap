@@ -25,10 +25,11 @@ Once mixed in, any object that inherits it, or primative that inherits from an o
 
 #### `tap.mixin`
 
+`tap.mixin` adds `.tap` to each object passed in.  If in an es5 environment, it will added as a non-enumerable, so as not to show up in loops.  Otherwise, it adds it as a regular property.
 
 #### `.tap`
 
-
+`.tap` takes a function, and any number of additional arguments.  It calls the function , passing in the value of `this` within the method as the first argument to the function, and the additional arguments are passed after that.
 
 ## Installation 
 
