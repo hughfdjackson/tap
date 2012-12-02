@@ -21,6 +21,25 @@ test('can be mixed in to object', function(){
     })
 })
 
+test('mutates an object', function(){
+    var o = {}
+    tap.mixin(o)
+    a.doesNotThrow(function(){
+        o.tap(id)
+    })
+})
+
+test('takes any number of objects, mutating them and returning the first', function(){
+    var o1 = {},
+        o2 = {},
+        o3 = {},
+        ret = tap.mixin(o1, o2, o3)
+
+    a.equal(ret, o1)
+    
+    ;[o1, o2, o3].forEach(function(o){ a.ok(o.tap) })
+})
+
 test('with prop descriptor', function(){
     if ( !Object.defineProperty ) return
 

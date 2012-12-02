@@ -11,11 +11,21 @@ void function(root){
         return fn.apply(null, [val].concat(args))
     }
 
-    tap.mixin = function(o){
-        if ( Object.defineProperty ) Object.defineProperty(o, 'tap', { enumerable: false, value: tap, configurable: true, writable: true })
+    // mixin
+
+    var tapPD = { enumerable: false, value: tap, configurable: true, writable: true };
+
+    var mixinOne = function(o){
+        if ( Object.defineProperty ) Object.defineProperty(o, 'tap', tapPD)
         else                         o.tap = tap
-        return o
     }
+
+    tap.mixin = function(){
+        var args = slice.call(arguments)
+        args.forEach(mixinOne)
+        return args[0]
+    }
+
 
     if ( typeof module == 'undefined' || module.exports == 'undefined' ) root.tap = tap
     else                                                                 module.exports = tap

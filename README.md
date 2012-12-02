@@ -29,13 +29,25 @@ Functions give us flexibility about granularity and locality, but they can be aw
 
 ## API
 
-`tap.mixin`
-`(object) -> object`
+`tap.mixin (object, [objects]) -> object`
 
-Mixes the `.tap` method into any object.  If the environment supports es5, then the property will be set to *non-enumerable*.
+Mixes the `.tap` method into any number of objects.  If the environment supports es5, then the property will be set to *non-enumerable*.
 
-`.tap`
-`(fn, [secondardy-args]) -> anyValue`
+    var tap = require('tap-chain')
+
+    // mix in to base backbone constructors
+    tap.mixin(Backbone.Model, Backbone.Collection, Backbone.Router, Backbone.View)
+
+    // mix in to a newly created object
+    var player = tap.mixin({ name: 'scott pilgrim', health: 100 })
+
+    // mix in to a blank object
+    var map = tap.mixin(Object.create(null))
+
+    // mix in to all objects - making .tap work on all values, even primitives (except `null` and `undefined`)
+    tap.mixin(Object.prototype)
+
+`.tap (fn, [secondardy-args]) -> anyValue`
 
 The mixed-in `.tap` method calls a function, using the context of the method as the first argument:
 
