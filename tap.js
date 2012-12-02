@@ -3,7 +3,7 @@ void function(root){
     var slice = [].slice
 
     var tap = function(fn){
-        var val = this.valueOf()
+        var val = this.valueOf ? this.valueOf() : this
 
         if ( arguments.length == 1 ) return fn(val)
 

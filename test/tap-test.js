@@ -101,6 +101,15 @@ test('tap against arrays', function(){
     delete Array.prototype.tap
 })
 
+test('tap against objects inheriting from `null`', function(){
+    
+    var o = tap.mixin(Object.create(null))
+
+    a.doesNotThrow(function(){
+        o.tap(_.extend, { x: 'foo' })
+    })
+})
+
 suite('tap with multiple arguments')
 
 test('it should pass the arguments to the function supplied *after* the `this` value of .tap', function(){
