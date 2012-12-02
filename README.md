@@ -32,8 +32,7 @@ Functions give us flexibility about granularity and locality, but they can be aw
 `tap.mixin`
 `(object) -> object`
 
-Mixes the `.tap` method into any object.  If the environment supports es5, then the property will be set to `non-enumerable`
-
+Mixes the `.tap` method into any object.  If the environment supports es5, then the property will be set to *non-enumerable*.
 
 `.tap`
 `(fn, [secondardy-args]) -> anyValue`
