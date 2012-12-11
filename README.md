@@ -38,8 +38,11 @@ Mixes the `.tap` method into any number of objects.  If the environment supports
 ```javascript
 var tap = require('tap-chain')
 
-// mix in to base backbone constructors
-tap.mixin(Backbone.Model, Backbone.Collection, Backbone.Router, Backbone.View)
+// mix in to base backbone prototypes
+tap.mixin(Backbone.Model.prototype, 
+          Backbone.Collection.prototype, 
+          Backbone.Router.prototype, 
+          Backbone.View.prototype)
 
 // mix in to a newly created object
 var player = tap.mixin({ name: 'scott pilgrim', health: 100 })
