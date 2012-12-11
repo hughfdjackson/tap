@@ -29,6 +29,12 @@ averageAge
 //= 37
 ```
 
+This is equivalent to:
+
+```javascript
+var averageAge = Math.round(people.map(function(p){ return p.age }).reduce(add) / people.length)
+```
+
 ## API
 
 ### `tap.mixin (object, [objects]) -> object`
