@@ -1,0 +1,18 @@
+
+<doctype html>
+<html>
+<head>
+  <title>tap browser loading test</title>
+</head>
+
+<body>
+
+
+  <script> /* some other module */ var module = 'foo'; </script>
+  <script src="../tap.js"></script>
+  <script> 
+    if ( typeof tap !== 'undefined' ) alert('passed')
+    else                              alert('failed')
+  </script>
+</body>
+</html>

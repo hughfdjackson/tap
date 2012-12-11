@@ -13,7 +13,7 @@ void function(root){
 
     // mixin
 
-    var tapPD = { enumerable: false, value: tap, configurable: true, writable: true };
+    var tapPD = { enumerable: false, value: tap, configurable: true, writable: true }
 
     var mixinOne = function(o){
         if ( Object.defineProperty ) Object.defineProperty(o, 'tap', tapPD)
@@ -27,6 +27,6 @@ void function(root){
     }
 
 
-    if ( typeof module == 'undefined' || module.exports == 'undefined' ) root.tap = tap
-    else                                                                 module.exports = tap
+    if ( typeof module == 'undefined' || module.exports == undefined ) root.tap = tap
+    else                                                               module.exports = tap
 }(this)
