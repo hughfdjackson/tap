@@ -1,6 +1,6 @@
 # Tap 
 
-Tap your functions into method chains.
+Tap your functions into method chains for near-seamless interoperability.
 
 ## Why
 
@@ -47,15 +47,16 @@ tap.mixin(Backbone.Model.prototype,
 // mix in to a newly created object
 var player = tap.mixin({ name: 'scott pilgrim', health: 100 })
 
-// mix in to a blank object
+// mix in to a 'blank' object (one with no [[Prototype]])
 var map = tap.mixin(Object.create(null))
 
-// mix in to all objects - making .tap work on all values,
-// even primitives (except `null` and `undefined`)
+// mix in to everything inheriting from Object.prototype
+// making .tap work on all non-null/undefined values,
+// including primitives
 tap.mixin(Object.prototype)
 ```
 
-### `.tap (fn, [secondardy-args]) -> anyValue`
+### `.tap (fn, [secondary-args]) -> anyValue`
 
 The mixed-in `.tap` method calls a function, using the context of the method as the first argument:
 
@@ -76,7 +77,6 @@ var divide = function(a, b){ return a / b },
 num.tap(divide, 2)
 //= 5
 ```
-
 ## Install 
 
 `npm install tap-chain` or [download](https://raw.github.com/hughfdjackson/tap/master/tap.js).  Creates a CommonJS module if available, otherwise exports a global named `tap`.
