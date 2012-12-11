@@ -2,8 +2,8 @@ void function(root){
 
     'use strict'
 
-    // util
-    var slice = [].slice
+    var slice  = [].slice,
+        lib    = {}
 
     // tap itself
     var tap = function(fn){
@@ -23,13 +23,13 @@ void function(root){
         else                         o.tap = tap
     }
 
-    tap.mixin = function(){
+    lib.mixin = function(){
         var args = slice.call(arguments)
         args.forEach(mixinOne)
         return args[0]
     }
 
     // export
-    if ( typeof module == 'undefined' || module.exports == undefined ) root.tap = tap
-    else                                                               module.exports = tap
+    if ( typeof module == 'undefined' || module.exports == undefined ) root.tap       = lib
+    else                                                               module.exports = lib
 }(this)

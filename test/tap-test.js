@@ -44,14 +44,15 @@ test('with prop descriptor', function(){
     if ( !Object.defineProperty ) return
 
     var o  = tap.mixin({}),
-        o2 = _.extend({}, o)
+        o2 = _.extend({}, o),
+        tapMethod = tap.mixin({}).tap
 
     a.equal(o2.tap, undefined)
-    a.equal(o.tap, tap)
+    a.equal(o.tap, tapMethod)
     
     // mixin is side-effectful
     tap.mixin(o)
-    a.equal(o.tap, tap)
+    a.equal(o.tap, tapMethod)
     
     // deletable
     delete o.tap 
