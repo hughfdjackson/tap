@@ -1,5 +1,7 @@
 void function(root){
 
+    'use strict'
+
     // util
     var slice = [].slice
 
