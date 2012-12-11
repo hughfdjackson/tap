@@ -1,7 +1,9 @@
 void function(root){
 
+    // util
     var slice = [].slice
 
+    // tap itself
     var tap = function(fn){
         var val = this.valueOf ? this.valueOf() : this
 
@@ -11,8 +13,7 @@ void function(root){
         return fn.apply(null, [val].concat(args))
     }
 
-    // mixin
-
+    // tap.mixin
     var tapPD = { enumerable: false, value: tap, configurable: true, writable: true }
 
     var mixinOne = function(o){
@@ -26,7 +27,7 @@ void function(root){
         return args[0]
     }
 
-
+    // export
     if ( typeof module == 'undefined' || module.exports == undefined ) root.tap = tap
     else                                                               module.exports = tap
 }(this)
