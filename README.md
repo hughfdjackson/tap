@@ -4,7 +4,7 @@ Tap your functions into method chains for near-seamless interoperability.
 
 ## Why
 
-Functions give us flexibility about granularity and locality, but they can be awkward to compose with an value's methods.  `tap` makes using functions & methods together idiomatic, natural, and very easy to read.  [See here](http://hughfdjackson.com/javascript/2012/11/30/tapping-into-the-method-chain/) for a fuller discussion.
+Functions give us flexibility about granularity and locality, but they can be awkward to compose with an value's methods.  `tap` makes using functions & methods together idiomatic, natural, and very easy to read.  [See here](https://hughfdjackson.com/javascript/tapping-into-the-method-chain/) for a fuller discussion.
 
 ## Example
 
